@@ -35,3 +35,24 @@ function showCandidate(id,focus=false){const chosen=candidateTabs.find(t=>t.data
 for(const [i,t]of candidateTabs.entries()){t.onclick=()=>showCandidate(t.dataset.candidate);t.addEventListener('keydown',e=>{let n;if(e.key==='ArrowRight')n=(i+1)%3;else if(e.key==='ArrowLeft')n=(i+2)%3;else if(e.key==='Home')n=0;else if(e.key==='End')n=2;else return;e.preventDefault();showCandidate(candidateTabs[n].dataset.candidate,true);});}
 $('quickBackup').onclick=()=>$('backup').click();
 showCandidate('primary');
+
+ // Starting over is explicit and never runs automatically on load or navigation.
+$('newAttempt').onclick=()=>$('restartDialog').showModal();
+$('restartCancel').onclick=()=>$('restartDialog').close();
+$('restartBackup').onclick=()=>$('backup').click();
+$('restartConfirm').onclick=()=>{
+  apply({version:1,fields:{},images:{},firstAttempt:null});
+  for(const id of ['firstimage','revisedimage','restore'])$(id).value='';
+  $('feedbackOutput').replaceChildren();
+  $('checks').replaceChildren();
+  $('report').replaceChildren();
+  $('report').hidden=true;
+  $('workspace').hidden=false;
+  $('restartDialog').close();
+  showCandidate('primary');
+  showPanel('plan');
+  save();
+  status('New attempt started. '+$('status').textContent);
+  $('name').focus();
+  window.scrollTo(0,0);
+};
