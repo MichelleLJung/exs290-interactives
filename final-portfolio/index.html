@@ -107,28 +107,51 @@
  #printarea .poster-reference-grid .reference-output{font-size:9pt!important;line-height:1.2!important}
 }
 
-/* Spacious landscape print: use available height without scaling the entire poster. */
+/* Final pagination: reference footer remains inside the poster, not on a separate sheet.
+   No flex growth or forced minimum poster height. Long posters can overflow rather
+   than silently shrink the student's writing. */
 @media print {
  #printarea>.poster[data-orientation="landscape"]{
-   display:flex!important;flex-direction:column!important;
-   min-height:265mm!important;height:auto!important;
-   padding:5mm!important;
+   display:block!important;height:auto!important;min-height:0!important;
+   padding:4mm!important;overflow:visible!important;
  }
- #printarea>.poster[data-orientation="landscape"] .poster-title{flex:0 0 auto!important;margin-bottom:6mm!important;padding:10px!important}
- #printarea>.poster[data-orientation="landscape"] .poster-band-intro{flex:0 0 auto!important;margin-bottom:8mm!important}
+ #printarea>.poster[data-orientation="landscape"] .poster-title{
+   margin-bottom:4mm!important;padding:8px!important;
+ }
+ #printarea>.poster[data-orientation="landscape"] .poster-band{
+   display:grid!important;gap:4mm!important;margin-bottom:4mm!important;
+   min-height:0!important;height:auto!important;
+ }
  #printarea>.poster[data-orientation="landscape"] .poster-band-visuals{
-   flex:1 0 auto!important;min-height:95mm!important;
-   align-items:start!important;margin-bottom:8mm!important;
+   display:grid!important;min-height:0!important;height:auto!important;
+   align-items:start!important;
  }
  #printarea>.poster[data-orientation="landscape"] .poster-band-visuals .poster-section img{
-   max-height:82mm!important;width:auto!important;object-fit:contain!important;
+   max-height:50mm!important;max-width:100%!important;object-fit:contain!important;
  }
- #printarea>.poster[data-orientation="landscape"] .poster-band-visuals .poster-section svg{max-height:80mm!important}
- #printarea>.poster[data-orientation="landscape"] .poster-band-interpretation{flex:0 0 auto!important;margin-bottom:7mm!important}
- #printarea>.poster[data-orientation="landscape"] .poster-references{flex:0 0 auto!important;margin-top:3mm!important}
- #printarea>.poster[data-orientation="landscape"] .poster-section p{font-size:12pt!important;line-height:1.38!important}
- #printarea>.poster[data-orientation="landscape"] .poster-section h3{font-size:13pt!important}
- #printarea>.poster[data-orientation="landscape"] .poster-reference-grid .reference-output{font-size:9.5pt!important}
+ #printarea>.poster[data-orientation="landscape"] .poster-band-visuals .poster-section svg{
+   max-height:50mm!important;
+ }
+ #printarea>.poster[data-orientation="landscape"] .poster-section{
+   margin-bottom:4px!important;padding-top:3px!important;
+ }
+ #printarea>.poster[data-orientation="landscape"] .poster-section p{
+   font-size:11pt!important;line-height:1.3!important;margin:3px 0!important;
+ }
+ #printarea>.poster[data-orientation="landscape"] .poster-section h3{
+   font-size:12pt!important;margin:1px 0 4px!important;
+ }
+ #printarea>.poster[data-orientation="landscape"] .poster-references{
+   display:block!important;break-inside:auto!important;page-break-inside:auto!important;
+   margin:3mm 0 0!important;padding:3px 0 0!important;
+ }
+ #printarea>.poster[data-orientation="landscape"] .poster-reference-grid{
+   display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+   gap:2mm 6mm!important;
+ }
+ #printarea>.poster[data-orientation="landscape"] .poster-reference-grid .reference-output{
+   font-size:9pt!important;line-height:1.2!important;break-inside:avoid!important;
+ }
 }
 </style></head><body><main><header class="hero"><div class="small"><strong>EXS290 · FALL 2026</strong></div><h1>Final Research Portfolio Builder</h1><p>Reuse your semester's work to communicate your evidence, reflect on your decisions, and prepare for your research conversation.</p></header><div aria-label="Portfolio sections" class="nav no-print" role="tablist"><button aria-selected="true" data-tab="start">Start Here</button><button data-tab="poster">Build Poster</button><button data-tab="visual">Study Figure</button><button data-tab="createvisual">Create a Visual</button><button data-tab="references">References</button><button data-tab="reflect">Reflect</button><button data-tab="preview">Preview &amp; Export</button><button data-tab="meeting">Meeting Prep &amp; Grading</button></div>
 <section class="panel active" id="start"><h2>You've already done the research.</h2><p>This is not a new investigation or a separate research paper. Bring together the question, sources, findings, and decisions from your completed EXS290 assignments.</p><div class="three"><div class="box"><h3>Research poster · 50 points</h3><p>Explain your question, evidence, synthesis, limitations, and supported conclusion.</p></div><div class="box"><h3>Semester reflection · 20 points</h3><p>Connect four short reflections to work you completed this semester.</p></div><div class="box"><h3>Research conversation · 30 points</h3><p>Discuss your poster and decisions in an approximately 15-minute meeting.</p></div></div><div class="box soft"><h3>What to have open</h3><p>Your final research question; Search → Review → Revise; Weigh the Evidence; Evidence Matrix; Connecting the Evidence; and Week 13 Research Decision &amp; Poster Start.</p><p><strong>Submission:</strong> Export your poster and reflection as a PDF, then inspect every page before uploading. The meeting is separate. Final Portfolio due December 13, 2026, 11:59 p.m. Arizona time.</p><p><strong>Source set:</strong> Use the sources developed during the course, generally six total (five primary and one secondary), with the requirements specified in Canvas.</p><p>All student-created text and annotations must be typed. Handwritten text and annotations do not meet submission requirements.</p></div><div class="box"><h3>What does a scientific conference poster look like?</h3><p><strong>This tool builds and formats your research poster for you.</strong> You do not need to design a poster from scratch or recreate any example you see. The examples below are simply to help you recognize how scientific posters communicate research: <strong>short sections of writing, clear headings, readable figures, and concise explanations</strong> rather than long paragraphs. Focus on selecting accurate evidence and explaining it clearly; the builder will organize your work into a poster layout.</p><p><a href="https://urc.ucdavis.edu/creating-effective-academic-posters" target="_blank" rel="noopener">UC Davis: Creating Effective Academic Posters (New Tab)</a></p><p><a href="https://felician.libguides.com/poster/examples" target="_blank" rel="noopener">Felician University: Examples of Conference Posters (New Tab)</a></p></div><div class="note">Your work is not automatically saved. Keep a JSON backup before closing or refreshing this page. Use <strong>Save JSON</strong> frequently and <strong>Load JSON</strong> to resume. Saving a JSON backup does not submit to Canvas.</div><div class="actions"><button class="button primary" data-go="poster">Start building</button></div></section>
